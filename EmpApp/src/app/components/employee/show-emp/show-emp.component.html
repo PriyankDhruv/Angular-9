@@ -1,0 +1,90 @@
+<div fxLayout fxLayoutAlign="center center">
+    <nav class="navbar bg-light navbar-dark" style="opacity: 0.8;">
+        <mat-form-field appearance="outline" style="margin-top: 0.8%;">
+            <mat-label>Search</mat-label>
+            <input matInput matTooltip="Search for your desired employee" 
+                type="text" (keyup)="applyFilter($event.target.value)" placeholder="Search here..">        
+        </mat-form-field>
+        <div style="float: right;">
+            <button color="primary" mat-raised-button matTooltip="Want to add new employee?" (click)="onAddEmp()">
+                Add Employee
+            </button>&nbsp;&nbsp;
+            <button mat-raised-button matTooltip="Want to save this employee data in .pdf file?" 
+                color="success" (click)="downloadPDF()">Download PDF</button>&nbsp;&nbsp;
+            <button mat-raised-button matTooltip="Want to save this employee data in .ods file?" 
+                color="success" (click)="exportToExcel()">Export To Excel</button>
+        </div>
+    </nav>
+</div>
+<div style="overflow: auto; opacity: 0.8;">
+    <div class="mat-elevation-z8 bg-light">
+        <div id="pdfTable" #pdfTable>
+            <mat-table [dataSource]="listData" matSort style="margin-left: 1%; margin-right: 1%">
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+                <ng-container matColumnDef="EmployeeID">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: bolder;">EmployeeID</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.EmployeeID}}</mat-header-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="EmployeeName">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: bolder;">EmployeeName</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.EmployeeName}}</mat-header-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="Department">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: bolder;">BrandName</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.Department}}</mat-header-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="MailID">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: bolder;">MailID</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element" style="padding-right: 4%;">{{element.MailID}}</mat-header-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="DOJ">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 62px; font-weight: bolder;">
+                        DOJ
+                    </mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.DOJ}}</mat-header-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="Address">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: bolder;">Address</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.Address}}</mat-header-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="Phone">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: bolder;">Phone</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.Phone}}</mat-header-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="Salary">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: bolder;">Salary</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.Salary}}</mat-header-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="Age">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: bolder;">Age</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element" style="margin-right: -48px;">{{element.Age}}</mat-header-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="Options">
+                    <mat-header-cell *matHeaderCellDef style="font-weight: bolder;">Options</mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                        <button mat-icon-button matTooltip="Want to edit this employee?" (click)="onEditEmp(row)">
+                            <mat-icon>launch</mat-icon>
+                        </button>
+                        <button mat-icon-button color="warn" matTooltip="Want to delete this employee?" 
+                            (click)="onDelEmp(row.EmployeeID)">
+                            <mat-icon>delete_outline</mat-icon>
+                        </button>
+                    </mat-cell>
+                </ng-container>
+            </mat-table>
+        </div>
+        <mat-paginator [pageSize]="4" [pageSizeOptions]="pageSizeOptions" style="margin-left: 1%; margin-right: 1%;">
+        </mat-paginator>
+    </div>
+</div>

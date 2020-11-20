@@ -1,0 +1,129 @@
+<div style="padding-top:90px;">
+    <div class="row">
+        <div class="col-md-3 mx-auto">
+            <mat-card style="opacity: 0.76;">
+                <h1 style="text-align: center;">
+                    <b>Register</b>
+                </h1>
+                <form class="form-horizontal" class="register" [formGroup]="registerForm" (ngSubmit)="register()" 
+                    style="padding: 2%;padding-top: 1%;" novalidate>
+                    <div class="form-group row" 
+                        [ngClass]="{'has-error': (registerForm.get('UserName').touched || registerForm.get('UserName').dirty) && registerForm.get('UserName').valid }">
+                        <div class="col-sm-12">
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <mat-label>Username</mat-label>
+                                <input matInput type="text" formControlName="UserName" 
+                                    class="form-control-sm" placeholder="Your Username" required />
+                                <mat-error *ngIf="registerForm.get('UserName').errors?.required">
+                                    Please enter your Username
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-group row" 
+                        [ngClass]="{'has-error': (registerForm.get('Email').touched || registerForm.get('Email').dirty) && !registerForm.get('Email').valid }">
+                        <div class="col-sm-12">
+                            <mat-form-field appearance="outline" style="width: 100%">
+                                <mat-label>Email</mat-label>
+                                <input matInput type="text" formControlName="Email" class="form-control-sm" placeholder="E.g. abc.xyz@gmail.com" required />
+                                <mat-error *ngIf="registerForm.get('Email').errors?.required">
+                                    Please enter your Email address
+                                </mat-error>
+                                <mat-error *ngIf="registerForm.get('Email').errors?.email">
+                                    Please enter a valid Email address
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-group row" 
+                        [ngClass]="{'has-error': (registerForm.get('Password').touched || registerForm.get('Password').dirty) && !registerForm.get('Password').valid }">
+                        <div class="col-sm-12">
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <mat-label>Password</mat-label>
+                                <input matInput id="mysecretpassword" type= "password" formControlName="Password" 
+                                    class="form-control-sm" placeholder="Your Password" showHideInput required />
+                                <i matSuffix
+                                    class="material-icons onboard"
+                                    showHideTrigger="mysecretpassword"
+                                    [showHideStatus]="{ materialIcon: true, id: 'mysecretpassword' }"
+                                ></i>
+                                <mat-error *ngIf="registerForm.get('Password').errors?.required">
+                                    Please enter your Password
+                                </mat-error>
+                                <mat-error *ngIf="registerForm.get('Password').errors?.minlength">
+                                    The Password must be longer than 4 characters
+                                </mat-error>
+                                <mat-error *ngIf="registerForm.get('Password').errors?.maxlength">
+                                    The Password must be not longer than 9 characters
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-group row" 
+                        [ngClass]="{'has-error': (registerForm.get('ContactNo').touched || registerForm.get('ContactNo').dirty) && !registerForm.get('ContactNo').valid }">
+                        <div class="col-sm-12">
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <mat-label>ContactNo</mat-label>
+                                <input matInput type="text" formControlName="ContactNo" 
+                                    class="form-control-sm" placeholder="Your ContactNo" required />
+                                <mat-error *ngIf="registerForm.get('ContactNo').errors?.required">
+                                    Please enter your ContactNo.
+                                </mat-error>
+                                <mat-error *ngIf="registerForm.get('ContactNo').errors?.maxlength">
+                                    Invalid ContactNo.
+                            </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-group row" 
+                        [ngClass]="{'has-error': (registerForm.get('Address').touched || registerForm.get('Address').dirty) && !registerForm.get('Address').valid }">
+                        <div class="col-sm-12">
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <mat-label>Address</mat-label>
+                                <textarea matInput type="text" formControlName="Address" 
+                                    class="form-control-sm" placeholder="Your Address" required></textarea>
+                                <mat-error *ngIf="registerForm.get('Address').errors?.required">
+                                    Please enter your Address
+                                </mat-error>
+                                <mat-error *ngIf="registerForm.get('Address').errors?.maxlength">
+                                    Address should not contain more than 50 characters
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-group row" 
+                        [ngClass]="{'has-error': (registerForm.get('Status').touched || registerForm.get('Status').dirty) && !registerForm.get('Status').valid }">
+                        <div class="col-sm-12">
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <mat-label>Status</mat-label>
+                                <mat-select matInput formControlName="Status" 
+                                    class="form-control-sm" required>
+                                    <mat-option value=1>Work from Office</mat-option>
+                                    <mat-option value=2>Work from Home</mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="registerForm.get('Status').errors?.required">
+                                    Please enter your current working status
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button mat-raised-button color="proceed" type="submit" class="active" [disabled]="!registerForm.valid"
+                            style="margin-right:8px; cursor:pointer;">
+                            Register
+                        </button>&nbsp;
+                        <button mat-raised-button color="danger" type="button" class="active" (click)="registerForm.reset()"
+                            style="cursor: pointer;">
+                            Cancel
+                        </button>
+                        <br />
+                        <hr>
+                        <a [routerLink]="['/login']">
+                            <b style="color: black;">Already have an account? Login here</b>
+                        </a>
+                    </div>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>

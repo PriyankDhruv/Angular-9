@@ -1,0 +1,15 @@
+.form-control-password {
+    position: relative;
+    top: -27px;
+    left: -4px;
+    cursor: pointer;
+}
+
+.onboard {
+    cursor: pointer;
+}
+
+.mat-check {
+    color: #f0fff3;
+    background-color: rgb(12, 157, 206);
+}

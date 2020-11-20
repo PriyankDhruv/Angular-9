@@ -1,0 +1,14 @@
+.title-center {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.mat-nav {
+    color: #f0fff3;
+    background-color: rgb(236, 144, 78);
+}
+
+.mat-logout {
+    color: #f0fff3;
+    background-color: rgb(220, 20, 120);
+}

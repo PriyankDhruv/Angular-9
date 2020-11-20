@@ -1,0 +1,62 @@
+<div style="padding-top:240px; overflow: hidden;">
+    <div class="row">
+        <div class="col-md-3 mx-auto">
+            <mat-card style="opacity: 0.76;">
+                <h1 style="text-align: center;">
+                    <b>Login</b>
+                </h1>
+                <form class="form-horizontal" class="login" [formGroup]="loginForm" (ngSubmit)="login()" 
+                    style="padding: 2%;padding-top: 1%;">
+                    <div class="form-group row" 
+                        [ngClass]="{'has-error': (loginForm.get('UserName').touched || loginForm.get('UserName').dirty) && loginForm.get('UserName').valid }">
+                        <div class="col-sm-12">
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <mat-label>Username</mat-label>
+                                <input matInput type="text" formControlName="UserName" 
+                                    class="form-control-sm" placeholder="Your UserName" required />
+                                <mat-error *ngIf="loginForm.get('UserName').errors?.required">
+                                    Please enter your UserName
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-group row" 
+                        [ngClass]="{'has-error': (loginForm.get('Password').touched || loginForm.get('Password').dirty) && !loginForm.get('Password').valid }">
+                        <div class="col-sm-12">
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <mat-label>Password</mat-label>
+                                <input matInput id="mysecretpassword" type= "password" formControlName="Password" 
+                                    class="form-control-sm" placeholder="Your Password" showHideInput required>
+                                <i matSuffix
+                                    class="material-icons onboard"
+                                    showHideTrigger="mysecretpassword"
+                                    [showHideStatus]="{ materialIcon: true, id: 'mysecretpassword' }"
+                                ></i>
+                                <mat-error *ngIf="loginForm.get('Password').errors?.required">
+                                    Please enter your Password
+                                </mat-error>
+                                <mat-error *ngIf="loginForm.get('Password').errors?.minlength">
+                                    The Password must be longer than 4 characters
+                                </mat-error>
+                                <mat-error *ngIf="loginForm.get('Password').errors?.maxlength">
+                                    The Password must be not longer than 12 characters
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button mat-raised-button color="check" type="submit" class="active" [disabled]="!loginForm.valid"
+                            style="cursor: pointer;" class="btn-lg btn-block px-12">
+                            Login
+                        </button>
+                        <br />
+                        <hr>
+                        <a [routerLink]="['/register']">
+                            <b style="color: black;">Not registered? Create an account</b>
+                        </a>
+                    </div>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>

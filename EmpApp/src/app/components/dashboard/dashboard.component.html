@@ -1,0 +1,39 @@
+<div style="opacity: 0.8;">
+    <div class="row">
+        <mat-toolbar color="nav">
+            <mat-toolbar-row>
+                <span class="title-center">
+                    <img src="../../../assets/images/Gateway-Digital.png" width="270px" />
+                </span>
+            </mat-toolbar-row>
+        </mat-toolbar>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">    
+            <nav class="navbar navbar-expand-sm bg-light navbar-dark" style="justify-content: space-between;">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a mat-raised-button matTooltip="Information about all brands" routerLink="department" routerLinkActive="active"
+                            class="m-1 btn btn-light btn-outline-primary">
+                            Brands
+                        </a>
+                    </li>&nbsp;
+                    <li class="nav-item">
+                        <a mat-raised-button matTooltip="Information about all Employees" routerLink="employee" routerLinkActive="active"
+                            class="m-1 btn btn-light btn-outline-primary">
+                            Employees
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a mat-mini-fab matTooltip="Logout" (click)="redirectToLogin()" color="logout">
+                            <fa-icon [icon]="faSignOutAlt"></fa-icon>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

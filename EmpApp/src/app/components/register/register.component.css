@@ -1,0 +1,20 @@
+.form-control-password {
+    position: relative;
+    top: -27px;
+    left: -4px;
+    cursor: pointer;
+}
+
+.onboard {
+    cursor: pointer;
+}
+
+.mat-danger {
+    color: #f0fff3;
+    background-color: crimson;
+}
+
+.mat-proceed {
+    color: #f0fff3;
+    background-color: rgb(39, 75, 238);
+}

@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-between">
+    <h3><b>Add New Brand</b></h3>
+    <mat-icon (click)="onClose()" style="cursor: pointer;">close</mat-icon>
+</div>
+<div style="overflow: auto; height: 150px;">
+    <form #addDeptForm="ngForm" autocomplete="off" (submit)="onSubmit(addDeptForm)">
+        <div class="mt-2 input-group">
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" name="DepartmentName" #DepartmentName="ngModel" placeholder="Brand Name" 
+                    [(ngModel)]="DeptService.formData.DepartmentName" required />
+                <mat-error *ngIf="DepartmentName.value === ''">
+                    Brand Name is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <button class="mt-4" mat-raised-button color="addDept" type="submit" [disabled]="addDeptForm.invalid">
+            Add Brand
+        </button>
+    </form>
+</div>

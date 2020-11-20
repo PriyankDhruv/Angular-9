@@ -1,0 +1,12 @@
+<div style="text-align: center;">
+    <h1 mat-dialog-title>Confirm</h1><hr>
+    <div mat-dialog-content><h4>{{confirmMsg}}</h4></div>
+    <div mat-dialog-actions style="justify-content: center;">
+        <button mat-button style="color: #fff;background-color: #153961;" (click)="dialogRef.close(true)">
+            Remove
+        </button>
+        <button  mat-button style="background-color: rgb(168, 164, 164);" (click)="dialogRef.close(false)">
+            Cancel
+        </button>
+    </div>
+</div>

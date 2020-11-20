@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 500px;
+}
+
+.mat-success {
+    color: #f0fff3;
+    background-color: #0fa031;
+}
+
+.mat-dialog-content {
+    overflow-y: hidden !important;
+}

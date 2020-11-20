@@ -1,0 +1,104 @@
+<div class="d-flex justify-content-between">
+    <h3><b>Edit Employee</b></h3>
+    <mat-icon (click)="onClose()" style="cursor: pointer;">close</mat-icon>
+</div>
+<div style="overflow: auto; height: 845px;">
+    <form #updtEmpForm="ngForm" autocomplete="off" (submit)="onSubmit(updtEmpForm)">
+        <div class="mt-2 input-group">
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Employee ID</mat-label>
+                <input matInput type="text" name="EmployeeID" #EmployeeID="ngModel" 
+                    [(ngModel)]="EmpService.formData.EmployeeID" readonly="readonly" required />
+            </mat-form-field>
+        </div>
+        <div class="mt-2 input-group">
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" name="EmployeeName" #EmployeeName="ngModel" 
+                    [(ngModel)]="EmpService.formData.EmployeeName" required />
+                <mat-error *ngIf="EmployeeName.value === ''">
+                    Name of Employee is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="mt-2 input-group">
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Brand</mat-label>
+                <mat-select name="Department" #Department="ngModel"
+                    [(ngModel)]="EmpService.formData.Department" required>
+                    <mat-option *ngFor="let dept of deptList" [value]="dept">
+                        {{dept}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="Department.value === ''">
+                    Department name is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="mt-2 input-group">
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Email</mat-label>
+                <input matInput type="text" name="MailID" #MailID="ngModel" 
+                    [(ngModel)]="EmpService.formData.MailID" required />
+                <mat-error *ngIf="MailID.value === ''">
+                    Email Address is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="mt-2 input-group">
+            <mat-form-field appearance="outline" style="width: 100%">
+                <mat-label>Date Of Joining</mat-label>
+                <input matInput [matDatepicker]="picker" type="text" name="DOJ" #DOJ="ngModel" 
+                    [(ngModel)]="EmpService.formData.DOJ" required />
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="DOJ.value === null">
+                    Date Of Joining is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="mt-2 input-group">
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Age</mat-label>
+                <input matInput type="text" name="Age" #Age="ngModel" 
+                    [(ngModel)]="EmpService.formData.Age" required />
+                <mat-error *ngIf="Age.value === ''">
+                    Age is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="mt-2 input-group">
+            <mat-form-field appearance="outline" style="width: 100%">
+                <mat-label>Salary</mat-label>
+                <input matInput type="text" name="Salary" #Salary="ngModel" 
+                    [(ngModel)]="EmpService.formData.Salary" required />
+                <mat-error *ngIf="Salary.value === null">
+                    Salary is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="mt-2 input-group">
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Address</mat-label>
+                <textarea matInput type="text" name="Address" #Address="ngModel" maxlength="70"
+                    [(ngModel)]="EmpService.formData.Address" required></textarea>
+                <mat-error *ngIf="Address.value === ''">
+                    Address is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="mt-2 input-group">
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Phone</mat-label>
+                <input id="validateNo" matInput type="text" name="Phone" #Phone="ngModel" maxlength="10" 
+                    [(ngModel)]="EmpService.formData.Phone" required />
+                <mat-error *ngIf="Phone.value === null">
+                    Phone No. is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <button class="mt-4" mat-raised-button color="editEmp" type="submit" [disabled]="updtEmpForm.invalid">
+            Update Employee
+        </button>
+    </form>
+</div>
