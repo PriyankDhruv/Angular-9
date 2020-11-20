@@ -1,0 +1,32 @@
+<div style="opacity: 0.8;">
+    <div class="row">
+        <mat-toolbar color="nav">
+            <mat-toolbar-row>
+                <span appAlignLogo>
+                    <img src="assets/images/DILX.png" width="270px" />
+                </span>
+            </mat-toolbar-row>
+        </mat-toolbar>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">    
+            <nav class="navbar navbar-expand-sm bg-light navbar-dark">
+                <ul class="navbar-nav" appAlignItems>
+                    <li class="nav-item">
+                        <button mat-fab color="emplist" matTooltip="Employee List" style="margin-right: 2px;"
+                            (click)="redirectToEmpList()" appAlignBtn>
+                            <mat-icon>group</mat-icon>
+                        </button>
+                    </li>&nbsp;&nbsp;
+                    <li class="nav-item">
+                        <button mat-fab color="warn" matTooltip="Add Employee" [class.spinner]="LoaderX"
+                            [disabled]="LoaderX" (click)="redirectToAddEmp()">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

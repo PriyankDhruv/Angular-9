@@ -1,0 +1,77 @@
+
+<div style="overflow: auto; opacity: 0.8;">
+    <div class="mat-elevation-z8 bg-light">
+        <br />
+        <mat-form-field appearance="outline" style="margin-left: 1%;">
+            <mat-label>Search</mat-label>
+            <input matInput (keyup)="applyFilter($event.target.value)" matTooltip="Search for your desired employee" 
+                type="text" placeholder="Search here..">        
+        </mat-form-field>
+        <br />
+        <mat-table [dataSource]="employees" matSort appAlignList>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+            <ng-container matColumnDef="Name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: bolder;">Name</mat-header-cell>
+                <mat-header-cell *matCellDef="let element" style="text-align: center;">
+                    {{element.name}}
+                </mat-header-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Email">
+                <mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: bolder; margin-left: -54px;">
+                    Email
+                </mat-header-cell>
+                <mat-header-cell *matCellDef="let element" style="margin-left: -47px;">{{element.email | shorten: 20}}</mat-header-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Brand">
+                <mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: bolder; padding-left: 64px;">
+                    Brand
+                </mat-header-cell>
+                <mat-header-cell *matCellDef="let element" style="margin-left: 20px; padding-left: 44px;">
+                    {{element.brand}}
+                </mat-header-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Designation">
+                <mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: bolder; margin-left: -8px;">
+                    Designation
+                </mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.designation}}</mat-header-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="DOJ">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>DOJ</mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.doj | date: 'mediumDate' | uppercase }}</mat-header-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="PhoneNumber">
+                <mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: bolder; margin-left: -16px;">
+                    Phone
+                </mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.phoneNumber}}</mat-header-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Options">
+                <mat-header-cell *matHeaderCellDef style="font-weight: bolder;">Options</mat-header-cell>
+                <mat-cell *matCellDef="let row;" style="margin-left: -10px;">
+                    <button mat-icon-button matTooltip="Want to edit this employee?" (click)="editEmployee(row)">
+                        <mat-icon>launch</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" matTooltip="Want to delete this employee?" 
+                        (click)="removeEmployee(row)">
+                        <mat-icon>delete_outline</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+        </mat-table>
+        <div *ngIf="isLoading" class="spinner-container custom-spinner" appAlignList>
+            <mat-progress-spinner mode="indeterminate">
+            </mat-progress-spinner>
+        </div>
+        <mat-paginator [pageSize]="4" [pageSizeOptions]="pageSizeOptions" appAlignList>
+        </mat-paginator>
+    </div>
+</div>

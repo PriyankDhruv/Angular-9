@@ -1,0 +1,97 @@
+.spinner-container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    background-color: #fafafa;
+    box-shadow:0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+    padding-top: 1%;
+    padding-bottom: 1%;
+  }
+
+:host ::ng-deep .custom-spinner circle{   
+    stroke: rgb(10, 35, 245);
+}
+
+@media only screen and (max-width: 913px) {
+    .mat-table, .mat-paginator {
+        max-width: 900px;
+    }
+}
+
+@media only screen and (max-width: 810px) {
+    .mat-table, .mat-paginator {
+        max-width: 800px;
+    }
+}
+
+@media only screen and (max-width: 717px) {
+    .mat-table, .mat-paginator {
+        max-width: 705px;
+    }
+}
+
+@media only screen and (max-width: 694px) {
+    .mat-table, .mat-paginator {
+        max-width: 695px;
+    }
+}
+
+@media only screen and (max-width: 654px) {
+    .mat-table, .mat-paginator {
+        max-width: 654px;
+    }
+}
+
+@media only screen and (max-width: 642px) {
+    .mat-table, .mat-paginator {
+        max-width: 642px;
+    }
+}
+
+@media only screen and (max-width: 633px) {
+    .mat-table, .mat-paginator {
+        max-width: 633px;
+    }
+}
+
+@media only screen and (max-width: 613px) {
+    .mat-table, .mat-paginator {
+        max-width: 613px;
+    }
+}
+
+@media only screen and (max-width: 588px) {
+    .mat-table, .mat-paginator {
+        max-width: 588px;
+    }
+}
+
+@media only screen and (max-width: 556px) {
+    .mat-table, .mat-paginator {
+        max-width: 556px;
+    }
+}
+
+@media only screen and (max-width: 536px) {
+    .mat-table, .mat-paginator {
+        max-width: 536px;
+    }
+}
+
+@media only screen and (max-width: 510px) {
+    .mat-table, .mat-paginator {
+        max-width: 510px;
+    }
+}
+
+@media only screen and (max-width: 491px) {
+    .mat-table, .mat-paginator {
+        max-width: 491px;
+    }
+}
+
+@media only screen and (max-width: 470px) {
+    .mat-table, .mat-paginator {
+        max-width: 470px;
+    }
+}
