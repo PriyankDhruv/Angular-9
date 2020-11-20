@@ -1,0 +1,40 @@
+<div style="opacity: 0.8;">
+    <div class="row">
+        <mat-toolbar color="nav">
+            <mat-toolbar-row>
+                <span class="title-center">
+                    <img src="assets/images/Autofacets.png" width="270px" />
+                </span>
+            </mat-toolbar-row>
+        </mat-toolbar>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">    
+            <nav class="navbar navbar-expand-sm bg-light navbar-dark" style="justify-content: space-between;">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <button mat-fab color="primary" matTooltip="Student List" style="margin-right: 2px;" [class.spinner]="LoaderX"
+                            [disabled]="LoaderX" (click)="redirectToStudList()">
+                            <mat-icon>group</mat-icon>
+                        </button>
+                    </li>&nbsp;&nbsp;
+                    <li class="nav-item">
+                        <button mat-fab color="primary" matTooltip="Add Student" [class.spinner]="LoaderY"
+                            [disabled]="LoaderY" (click)="redirectToAddStud()">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <button mat-fab matTooltip="Logout" color="logout" [class.spinner]="LoaderZ"
+                            [disabled]="LoaderZ" (click)="redirectToLogin()">
+                            <mat-icon>logout</mat-icon>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
