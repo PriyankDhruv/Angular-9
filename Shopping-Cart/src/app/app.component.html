@@ -1,0 +1,42 @@
+<div class="d-flex" id="wrapper">
+
+  <!-- Sidebar -->
+  <div class="bg-dark border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading">
+      <h5 style="color: white;">Shopping Cart</h5>
+    </div>
+    <div class="list-group list-group-flush">
+      <a id = "jarvis" href="#" class="list-group-item list-group-item-action" routerLink = "products" routerLinkActive = "active">
+        <fa-icon [icon] = "faEye" style="color:orangered"></fa-icon>
+        &nbsp;<span style="color: white">View Products</span>
+      </a>
+      <a id = "friday" href="#" class="list-group-item list-group-item-action" routerLink = "cart" routerLinkActive = "active">
+          <fa-icon [icon] = "faShoppingCart" style="color:yellow"></fa-icon>
+          &nbsp;<span style="color: white">Cart</span>
+      </a>
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary border-bottom">
+        <button class="btn btn-primary" id="menu-toggle">
+        <fa-icon [icon] = "faBars" style="color:white"></fa-icon> 
+        </button>
+    </nav>
+
+    <div id = "poster">
+      <div class="d-flex justify-content-center mt-5">
+        <img src="../assets/Images/Shopping-Cart.png"/>
+      </div>
+    </div>
+  
+    <router-outlet></router-outlet>
+    
+  </div>
+  <!-- /#page-content-wrapper -->
+
+</div>
+<!--/#wrapper-->

@@ -1,0 +1,94 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "products": [
+    {
+      "id": 1,
+      "title": "Boeing - Airport Playset",
+      "description": "Wonderful playset for kids of age between 6 to 10 years and for Aeroplane lovers.",
+      "category": "Toys",
+      "image": "/assets/Images/Airport Playset [Boeing].jpg",
+      "price": 300,
+      "quantity": 1,
+      "ratings": "3,376",
+      "reviews": "438",
+      "score": "4.2",
+      "service": "10 Days Replacement Policy",
+      "seller": "ARKidsToys"
+    },
+    {
+      "id": 2,
+      "title": "G.I.Joe Figure Set",
+      "description": "Battle Set designed for kids of age between 8 to 12 years and specially for G.I.Joe lovers.",
+      "image": "/assets/Images/Figure Set [G.I.Joe].jpg",
+      "category": "Toys",
+      "price": 400,
+      "quantity": 1,
+      "ratings": "7,500",
+      "reviews": "228",
+      "score": "4.3",
+      "service": "Cash on Delivery available",
+      "seller": "JSKCOLLECTION"
+    },
+    {
+      "id": 3,
+      "title": "Barbie Dream House",
+      "description": "Complete Set of Barbie House for girl child of age between 8 to 12 years.",
+      "image": "/assets/Images/Dream House [Barbie].jpg",
+      "category": "Toys",
+      "price": 350,
+      "quantity": 1,
+      "ratings": "6,204",
+      "reviews": "802",
+      "score": "4.7",
+      "service": "None",
+      "seller": "Jaynil"
+    },
+    {
+      "id": 4,
+      "title": "League Lines - Train Set",
+      "description": "Classic Train Set for kids of age between 7 to 10 years & specially for Train lovers.",
+      "image": "/assets/Images/Train [Rail-King].jpg",
+      "category": "Toys",
+      "price": 300,
+      "quantity": 1,
+      "ratings": "4,446",
+      "reviews": "522",
+      "score": "4.6",
+      "service": "10 Days Replacement Policy",
+      "seller": "RetailNet"
+    }
+  ],
+  "cart": [
+    {
+      "id": 1,
+      "title": "Boeing - Airport Playset",
+      "description": "Wonderful playset for kids of age between 6 to 10 years and for Aeroplane lovers.",
+      "category": "Toys",
+      "image": "/assets/Images/Airport Playset [Boeing].jpg",
+      "price": 300,
+      "quantity": 1,
+      "ratings": "3,376",
+      "reviews": "438",
+      "score": "4.2",
+      "service": "10 Days Replacement Policy",
+      "seller": "ARKidsToys"
+    }
+  ],
+  "favourites": []
+}

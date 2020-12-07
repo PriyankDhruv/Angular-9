@@ -1,0 +1,76 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <h3 class="mt-4">Gateway - Toy World</h3>
+        <div style = "display: flex;">
+            <div class = "card rounded m-2 d-block" style = "width: 18rem;" *ngFor = "let product of products">
+                <img class = "card-img-top" [src] = "product.image" alt = "Card image cap"/>  
+                <div class = "card-body">
+                    <h5 class = "card-title">{{product.id}}.&nbsp;{{product.title}}</h5>
+                    <p class = "card-text">{{product.description}}</p>
+                    <button id = "trigger" type = "button" class = "btn btn-outline-primary" (click)="open(content)">
+                        View Details
+                    </button>
+
+                    <ng-template #content let-modal>
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="productTitle">Product Details</h4>
+                            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+        
+                        <div class="modal-body">
+                            <div style="display: flex; flex-direction: column;">
+                                <div><b>Category :</b></div>
+                                <div>{{product.category}}</div>
+                            </div>
+                            <br/>
+                            <div style="display: flex; flex-direction: column;">
+                                <div><b>Price :</b></div>
+                                <div>{{product.price | currency: 'INR'}}</div>
+                            </div>
+                            <br/>
+                            <div style="display: flex; flex-direction: column;">
+                                <div><b>Ratings :</b></div>
+                                <div>
+                                    <span class = "rounded" style = "background-color: rgb(29, 160, 29); color: white;">
+                                        &nbsp;<b>{{product.score}}</b>&nbsp;
+                                        <fa-icon [icon] = "faStar" style="color: white;"></fa-icon>&nbsp;   
+                                    </span>&nbsp;&nbsp;{{product.ratings}} Ratings & {{product.reviews}} Reviews
+                                </div>
+                            </div>
+                            <br/>  
+                            <div style="display: flex; flex-direction: column;">
+                                <div><b>Services :</b></div>
+                                <div>{{product.service}}</div>
+                            </div>
+                            <br/>
+                            <div style="display: flex; flex-direction: column;">
+                                <div><b>Seller :</b></div>
+                                <div>{{product.seller}}</div>
+                            </div>
+                        </div>
+        
+                        <div class="modal-footer">
+                            <button id = "CheckIn" type = "button" class = "btn btn-warning" (click) = "AddProductData(product)">
+                                <fa-icon [icon] = "faShoppingCart" style="color: orangered;"></fa-icon>
+                                &nbsp;Add to Cart
+                            </button>
+                            <button id = "CheckOut" type = "button" class= "btn btn-success no-drop" hidden disabled>
+                                <fa-icon [icon] = "faCheckCircle" style="color: darkgreen;"></fa-icon>
+                                &nbsp;Added to Cart
+                            </button>
+                        </div>
+                    </ng-template> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /#page-content-wrapper -->
+
+  
+  
+  
+  

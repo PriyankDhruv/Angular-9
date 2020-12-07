@@ -1,0 +1,87 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <br/>
+        <div class="jumbotron">
+            <h3 class="display-5">Review your Selected Items here..</h3>
+            <br/>
+            <table class="table table-bordered table-info">
+                <thead style="background-color:rgb(48, 117, 117); color: white;">
+                <tr>
+                    <th scope="col">Sr No.</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Seller</th>
+                    <th scope="col">Price/Qty.</th>
+                    <th scope="col">Qty.</th>
+                    <th scope="col">SubTotal</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody *ngFor = "let product of sortItems">
+                    <tr>
+                        <th scope="row">{{product.id}}</th>
+                        <td>{{product.title}}</td>
+                        <td>{{product.seller}}</td>
+                        <td>{{product.price | currency: 'INR'}}</td>
+                        <td>
+                            <fa-icon [icon] = "faMinusCircle" class = "pointer" (click) = "decrement(product)"></fa-icon>
+                            &nbsp;{{ product.quantity }}&nbsp;
+                            <fa-icon [icon] = "faPlusCircle" class = "pointer" (click) = "increment(product)"></fa-icon>
+                        </td>
+                        <td>{{ product.price * product.quantity | currency: 'INR'}}</td>
+                        <td>
+                            <button type = "button" class = "btn btn-primary" (click)="open(content)">View Details</button>
+                            &nbsp;
+                            <button type = "button" class = "btn btn-danger" (click)="deleteProductData(product.id)">Remove</button>
+                        </td>
+                    </tr>
+                    <ng-template #content let-modal>
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="productTitle">Product Details</h4>
+                            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+            
+                        <div class="modal-body">
+                            <div style="display: flex; flex-direction: column;">
+                                <div><b>Category :</b></div>
+                                <div>{{product.category}}</div>
+                            </div>
+                            <br/>
+                            <div style="display: flex; flex-direction: column;">
+                                <div><b>Description :</b></div>
+                                <div>{{product.description}}</div>
+                            </div>
+                            <br/>
+                            <div style="display: flex; flex-direction: column;">
+                                <div><b>Ratings :</b></div>
+                                <div>
+                                    <span class = "rounded" style = "background-color: rgb(29, 160, 29); color: white;">
+                                        &nbsp;<b>{{product.score}}</b>&nbsp;
+                                        <fa-icon [icon] = "faStar" style="color: white;"></fa-icon>&nbsp;   
+                                    </span>&nbsp;&nbsp;{{product.ratings}} Ratings & {{product.reviews}} Reviews
+                                </div>
+                            </div>
+                            <br/>  
+                            <div style="display: flex; flex-direction: column;">
+                                <div><b>Services :</b></div>
+                                <div>{{product.service}}</div>
+                            </div>
+                            <br/>
+                        </div>
+        
+                        <div class="modal-footer">
+                            <button type = "button" class="btn btn-dark" (click)="modal.close('Save click')">Close</button>
+                        </div>
+                    </ng-template>
+                </tbody>
+            </table>
+            <div>
+                <h5>Total Amount : {{ getTotal() | currency: 'INR'}}</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /#page-content-wrapper -->
+
